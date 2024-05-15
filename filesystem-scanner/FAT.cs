@@ -4,6 +4,12 @@ namespace filesystem_scanner
 {
     public class FAT
     {
+        public FAT()
+        {
+            findFilesClusters();
+            findLostFilesClusters();
+        }
+
         private enum Type
         {
             EMPTY = -1,
@@ -11,18 +17,18 @@ namespace filesystem_scanner
             BAD = -3
         };
 
-        private int[] clusters = {-1, -1, 3, 4, 5, 6, -2, -1, 9, 26,
-                    -3, -2, -1, -1, 16, -3, 26, -1, -1, -1,
-                    -1, -3, 23, 26, -1, -1, 27, 28, -2, -1,
-                    -1, -1, -2, 32, 35, 36, 37, 38, -2, -1,
-                    -1, -1, -1, -3, -1, -1, -1, -1, -1, -1};
+        private int[] clusters = {-1, -1,  3,  4,  5,  6, -2, -1,  9, 26,
+                                  -3, -2, -1, -1, 16, -3, 26, -1, -1, -1,
+                                  -1, -3, 23, 26, -1, -1, 27, 28, -2, -1,
+                                  -1, -1, -2, 32, 35, 36, 37, 38, -2, -1,
+                                  -1, -1, -1, -3, -1, -1, -1, -1, -1, -1};
 
         private Dictionary<char, int> files = new Dictionary<char, int>()
         {
             ['A'] = 2,
             ['B'] = 14,
             ['C'] = 22,
-            ['D'] = 8
+            ['D'] = 8,
         };
 
         private Dictionary<char, List<int>> filesClusters = new Dictionary<char, List<int>>();
@@ -31,13 +37,11 @@ namespace filesystem_scanner
 
         public Dictionary<char, List<int>> getFilesClusters()
         {
-            findFilesClusters();
             return filesClusters;
         }
 
         public Dictionary<int, List<int>> getLostFilesClusters()
         {
-            findLostFilesClusters();
             return lostFilesClusters;
         }
 
@@ -191,7 +195,7 @@ namespace filesystem_scanner
                     flag = true;
                     if (usedClasters.Contains(file.Value[i]))
                     {
-                        for (int j = file.Value[i] + 1; j < clusters.Length; j++)
+                        for (int j = 0; j < clusters.Length; j++)
                         {
                             if (clusters[j] == (int)Type.EMPTY)
                             {

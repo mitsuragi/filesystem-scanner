@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("filesystem-scanner")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0e2484135cdf9252da4a8521b807ca2740ca13b8")]
 [assembly: System.Reflection.AssemblyProductAttribute("filesystem-scanner")]
 [assembly: System.Reflection.AssemblyTitleAttribute("filesystem-scanner")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
