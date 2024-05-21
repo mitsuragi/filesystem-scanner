@@ -78,6 +78,7 @@ namespace filesystem_scanner
             {
                 Console.WriteLine($"{file.Key} - {file.Value}");
             }
+            Console.WriteLine();
         }
 
         private void findFilesClusters()

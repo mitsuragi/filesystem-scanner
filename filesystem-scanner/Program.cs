@@ -8,16 +8,16 @@
             bool quit = false;
             int input;
 
-            Console.WriteLine("1 - display clusters\n" +
-              "2 - display files\n" +
-              "3 - find files clusters\n" +
-              "4 - find bad clusters\n" +
-              "5 - find lost files\n" +
-              "6 - fix duplicates\n" +
-              "0 - exit");
-
             while (!quit)
             {
+                Console.WriteLine("1 - Показать кластеры\n" +
+                                  "2 - Показать файлы\n" +
+                                  "3 - Поиск кластеров файлов\n" +
+                                  "4 - Поиск BAD кластеров\n" +
+                                  "5 - Поиск потерянных файлов\n" +
+                                  "6 - Исправление дублирующихся файлов\n" +
+                                  "0 - Выход\n");
+
                 Console.Write("Введите пункт меню: ");
                 try
                 {
@@ -35,7 +35,6 @@
                         quit = true;
                         break;
                     case 1:
-                        Console.WriteLine("\n==FAT==");
                         fat.displayClusters();
                         break;
                     case 2:
@@ -52,6 +51,7 @@
                             }
                             Console.WriteLine();
                         }
+                        Console.WriteLine();
                         break;
                     case 4:
                         Console.WriteLine("Поиск BAD файлов");
@@ -59,7 +59,7 @@
                         {
                             Console.Write(i + " ");
                         }
-                        Console.WriteLine();
+                        Console.WriteLine('\n');
                         break;
                     case 5:
                         Console.WriteLine("Поиск потерянных файлов");
@@ -72,15 +72,16 @@
                             }
                             Console.WriteLine();
                         }
+                        Console.WriteLine();
                         break;
                     case 6:
                         Console.WriteLine("Исправление дублирующихся кластеров");
                         fat.fixDuplicateClusters();
-                        Console.WriteLine("Дубликаты исправлены");
+                        Console.WriteLine("Дубликаты исправлены\n");
                         break;
                 }
             }
-            Console.WriteLine("bye");
+            Console.WriteLine("Пока");
         }
     }
 }
